@@ -1,0 +1,40 @@
+body {
+    background-color: rgb(230, 239, 250);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h1 {
+    width: fit-content;
+    margin-inline: auto;
+    text-decoration: underline;
+}
+
+table {
+    margin-inline: auto;
+}
+
+.table-title {
+    text-align: center;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+textarea {
+    display: block;
+    resize: none;
+    width: 100%;
+    height: 150px;
+}
+
+.buttons {
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.buttons input[type='submit'] {
+    margin-right: 30px;
+}
+
+.buttons input {
+    padding: 10px;
+}

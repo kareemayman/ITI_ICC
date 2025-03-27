@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration</title>
+    <link rel="stylesheet" href="registration.css">
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+
+    <form action="welcome.html">
+        <table border="1" cellpadding="15">
+            <tr>
+                <td><label for="first-name">First Name</label></td>
+                <td colspan="2"><input type="text" name="first-name" id="first-name"
+                        placeholder="Enter your first name" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="last-name">Last Name</label></td>
+                <td colspan="2"><input type="text" name="last-name" id="last-name" placeholder="Enter your last name" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="email">Email</label></td>
+                <td colspan="2"><input type="email" name="email" id="email" placeholder="Enter your email" required></td>
+            </tr>
+
+            <tr>
+                <td><label for="address">Address</label></td>
+                <td colspan="2"><input type="text" name="address" id="address" placeholder="Enter your address" required>
+                </td>
+            </tr>
+
+            <tr>
+                <td rowspan="2"><label>Gender</label></td>
+                <td colspan="2">
+                    <input type="radio" name="gender" id="female" value="female" required>
+                    <label for="female">Female</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <input type="radio" name="gender" id="male" value="male" required>
+                    <label for="male">Male</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td><label for="country">Country</label></td>
+                <td colspan="2">
+                    <select name="country" id="country" required>
+                        <option value="" disabled selected>Select a Country</option>
+                        <optgroup label="Africa">
+                            <option value="egypt">Egypt</option>
+                            <option value="sudan">Sudan</option>
+                            <option value="libya">Libya</option>
+                            <option value="tunisia">Tunisia</option>
+                            <option value="moroco">Moroco</option>
+                        </optgroup>
+
+                        <optgroup label="Europe" disabled>
+                            <option value="italy">Italy</option>
+                            <option value="sweden">Sweden</option>
+                            <option value="spain">Spain</option>
+                        </optgroup>
+
+                        <optgroup label="Asia">
+                            <option value="palestine">Palestine</option>
+                            <option value="sk">South Korea</option>
+                            <option value="india">India</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="3">
+                    <div class="buttons">
+                        <input type="submit" value="Register">
+                        <input type="reset" value="Clear...">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

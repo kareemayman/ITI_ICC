@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Game</title>
+    <script defer src="memory-game.js"></script>
+    <style>
+        body {
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        .container {
+            width: fit-content;
+            margin-inline: auto;
+            margin-top: 30px;
+        }
+        img {
+            cursor: pointer;
+        }
+        .matched {
+            cursor: not-allowed
+        }
+        .win-modal {
+            width: 300px;
+            position: absolute;
+            top: -30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgb(28, 25, 58);
+            color: white;
+            padding: 30px;
+            padding-bottom: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.473);
+            text-align: center;
+            transition: 0.6s;
+        }
+
+        .win-modal button {
+            padding: 10px 20px;
+            border-radius: 8px;
+            color: rgb(32, 21, 54);
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .show-modal {
+            top: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="images/Moon.gif" alt="moon" data-index="2" onclick="displayImg(this)" id="img-1">
+        <img src="images/Moon.gif" alt="moon" data-index="3" onclick="displayImg(this)" id="img-2">
+        <img src="images/Moon.gif" alt="moon" data-index="5" onclick="displayImg(this)" id="img-3">
+        <img src="images/Moon.gif" alt="moon" data-index="6" onclick="displayImg(this)" id="img-4">
+        <br>
+        <img src="images/Moon.gif" alt="moon" data-index="4" onclick="displayImg(this)" id="img-5">
+        <img src="images/Moon.gif" alt="moon" data-index="1" onclick="displayImg(this)" id="img-6">
+        <img src="images/Moon.gif" alt="moon" data-index="1" onclick="displayImg(this)" id="img-7">
+        <img src="images/Moon.gif" alt="moon" data-index="2" onclick="displayImg(this)" id="img-8">
+        <br>
+        <img src="images/Moon.gif" alt="moon" data-index="5" onclick="displayImg(this)" id="img-9">
+        <img src="images/Moon.gif" alt="moon" data-index="3" onclick="displayImg(this)" id="img-10">
+        <img src="images/Moon.gif" alt="moon" data-index="6" onclick="displayImg(this)" id="img-11">
+        <img src="images/Moon.gif" alt="moon" data-index="4" onclick="displayImg(this)" id="img-12">
+    </div>
+
+    <div class="win-modal">
+      <h1>Congrats, You Beat The Game!🎉🎊</h1>
+      <button onclick="closeModal()">Close</button>
+    </div>
+</body>
+</html>
