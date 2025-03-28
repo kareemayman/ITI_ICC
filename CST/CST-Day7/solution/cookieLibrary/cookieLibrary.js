@@ -1,12 +1,25 @@
 function getCookie(cookieName) {
+    if (arguments.length != 1) {
+        let err = new Error("Invalid number of arguments")
+        throw err
+    }
     const res = hasCookie(cookieName)
     if(res)
         return res
 }
 
 function setCookie(name, value, exp = undefined) {
+    if (arguments.length < 2 || arguments.length > 3) {
+        let err = new Error("Invalid number of arguments")
+        throw err
+    }
     if (exp) {
-        document.cookie = name + "=" + value + ";expires=" + exp.toUTCString()
+        try {
+            document.cookie = name + "=" + value + ";expires=" + exp.toUTCString()
+        } catch (e) {
+            let err = new Error("Invalid date format")
+            throw err
+        }
     } else {
         document.cookie = name + "=" + value
     }
@@ -46,9 +59,10 @@ function hasCookie(name) {
     return keysArr[name]
 }
 
-// setCookie('kareem', 'mohamed')
+// setCookie('kareem', 5)
 // setCookie('age', 24)
 // setCookie('ahmed', 'ashraf')
+// deleteCookie('someosbgo')
 // console.log(getCookie('kareem'))
 // setCookie('kareem', 'ayman', new Date("9-9-2022"))
 // console.log(allCookieList())
