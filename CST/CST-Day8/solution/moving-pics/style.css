@@ -1,0 +1,46 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    width: 700px;
+    aspect-ratio: 1;
+    margin: 60px auto;
+    border: 5px solid red;
+    position: relative;
+}
+
+.container img:first-child {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.container img:nth-child(2) {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.container img:last-child {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    translate: -50% 0;
+}
+
+.buttons {
+    width: fit-content;
+    margin-inline: auto;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    margin: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
