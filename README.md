@@ -1,8 +1,14 @@
 # ITI_ICC
 Documenting my journey in the third round of ITI-ICC Frontend Scholarship (2024 &amp; 2025)
+## 📚 About This Repository
+Contains completed assignments and projects from the ITI (Information Technology Institute) intensive training program covering:
 
+- Frontend Development (HTML5, CSS3, JavaScript/TypeScript)
+- Cross-Platform Mobile Development (React Native, Flutter)
+- Modern UI/UX Practices
+- API Integration
+- State Management
 ## 📘 Curriculum Core Concepts
-
 [![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/HTML)
 [![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 [![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
@@ -31,11 +37,3 @@ Documenting my journey in the third round of ITI-ICC Frontend Scholarship (2024 
 **4-Month Professional Training Program**  
 *Cairo University Branch • Mar 2025 - Jun 2025*  
 
-## 📚 About This Repository
-Contains completed assignments and projects from the ITI (Information Technology Institute) intensive training program covering:
-
-- Frontend Development (HTML5, CSS3, JavaScript/TypeScript)
-- Cross-Platform Mobile Development (React Native, Flutter)
-- Modern UI/UX Practices
-- API Integration
-- State Management
