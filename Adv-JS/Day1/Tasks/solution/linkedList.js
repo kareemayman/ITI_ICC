@@ -87,28 +87,19 @@ let linkedListObj = {
         this.data.splice(index, 0, {val: value});
         
     },
-    remove: function(value, index) {
+    remove: function(value) {
         if (typeof value !== 'number') {
             let error = new Error('Value must be a number');
             throw error;
         }
-        if (index < 0 || index > this.data.length) {
-            let error = new Error('Index out of bounds');
-            throw error;
+        for (let i = 0; i < this.data.length; i++) {
+            if (this.data[i].val === value) {
+                this.data.splice(i, 1);
+                return;
+            }
         }
-        if (this.data[index].val !== value) {
-            let error = new Error('Value not found in the list');
-            throw error;
-        }
-        this.data.splice(index, 1);
-        // for (let i = 0; i < this.data.length; i++) {
-        //     if (this.data[i].val === value) {
-        //         this.data.splice(i, 1);
-        //         return;
-        //     }
-        // }
-        // let error = new Error('Value not found in the list');
-        // throw error;
+        let error = new Error('Value not found in the list');
+        throw error;
     }
 }
 
