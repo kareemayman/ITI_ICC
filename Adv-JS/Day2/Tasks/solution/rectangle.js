@@ -17,5 +17,5 @@ function Rectangle(w, h) {
 
 let rect1 = new Rectangle(5, 10)
 let rect2 = new Rectangle(3, 4)
-rect1.displayInfo()
-rect2.displayInfo()
+// rect1.displayInfo()
+// rect2.displayInfo()
