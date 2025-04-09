@@ -1,0 +1,80 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+nav {
+    margin: 60px auto 0;
+    width: fit-content;
+}
+
+nav > div {
+    display: inline-block;
+    background-color: rgb(236, 141, 157);
+    color: white;
+    padding: 30px 50px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 1.5em;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    font-style: italic;
+    margin-inline: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+nav > div:hover {
+    background-color: rgb(236, 141, 157);
+    transform: scale(1.05);
+}
+
+nav ~ div {
+    margin: 120px auto;
+    padding: 30px;
+    width: 800px;
+    min-height: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    text-align: center;
+}
+
+.gallary {
+    padding: 60px 30px;
+}
+
+.gallary img {
+    max-width: 150px;
+    aspect-ratio: 1;
+    display: inline-block;
+    margin-inline: 10px;
+}
+
+.services {
+    width: 190px;
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    margin-left: 940px;
+    min-height: initial;
+}
+
+.services div {
+    background-color: rgb(236, 141, 157);
+    padding: 10px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 5px;
+}
+
+.services div:hover {
+    background-color: rgb(236, 141, 157);
+    transform: scale(1.05);
+}
+
+.complain form div {
+    margin-bottom: 30px;
+}
