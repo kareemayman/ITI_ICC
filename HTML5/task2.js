@@ -4,7 +4,7 @@ const redSlider = document.querySelector('#red')
 const greenSlider = document.querySelector('#green')
 const blueSlider = document.querySelector('#blue')
 
-document.addEventListener('change', (e) => {
+document.addEventListener('input', (e) => {
 
     if (e.target.matches('input')) {
         h1.style.color = `rgb(${redSlider.value}, ${greenSlider.value}, ${blueSlider.value})`
