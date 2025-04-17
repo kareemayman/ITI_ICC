@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fan</title>
+</head>
+
+<body>
+    <canvas>
+        <script>
+            let canvas = document.querySelector('canvas');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 800;
+            canvas.height = 600;
+
+            let rotation = 0
+
+            let direction = 1
+
+            let myInt = setInterval(() => {
+                ctx.save()
+
+                // Move the origin to the center of the rectangle
+                ctx.translate(canvas.width / 2, canvas.height / 2);
+
+                // Rotate the canvas
+                if (direction == 1) {
+                ctx.rotate((rotation-=30) * Math.PI / 180); // Rotate 30 degrees (in radians)
+                } else {
+                    ctx.rotate((rotation+=30) * Math.PI / 180); // Rotate 30 degrees (in radians)
+                }
+
+                if (rotation < -180) {
+                    canvas.width = canvas.width
+                    direction = 2
+                }
+
+                if (direction==2 && rotation == -30) {
+                    clearInterval(myInt)
+                }
+
+                // Draw the rectangle relative to the new origin
+                ctx.fillStyle = 'rgba(0,0,255, 0.5)';
+                ctx.fillRect(-60, -20, 120, 40); // Center the rectangle at the origin
+
+                ctx.restore();
+            }, 500);
+        </script>
+    </canvas>
+</body>
+
+</html>

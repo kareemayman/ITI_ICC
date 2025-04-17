@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Line Animation</title>
+</head>
+
+<body>
+    <canvas style="border: 1px solid blue">
+        <script>
+            var canvas = document.querySelector('canvas');
+            var ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 600;
+            ctx.moveTo(0, 0)
+            ctx.strokeStyle = 'red';
+            ctx.lineWidth = 5;
+            let x = 0
+            let y = 0
+
+            let myInt = setInterval(() => {
+                if (x === 600) {
+                    alert("Animation finished")
+                    clearInterval(myInt)
+                    return
+                }
+                ctx.lineTo(++x, ++y)
+                ctx.stroke();
+            }, 10);
+        </script>
+    </canvas>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meme</title>
+</head>
+
+<body>
+    <canvas>
+        <script>
+            var canvas = document.querySelector('canvas');
+            var ctx = canvas.getContext('2d');
+
+            canvas.width = 800;
+            canvas.height = 600;
+
+            let img = new Image();
+            img.src = "images/img.jpg";
+
+            img.onload = function() {
+                ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
+
+                ctx.font = "30px Arial";
+                ctx.fillStyle = "white";
+                ctx.textAlign = "center";
+                
+                ctx.shadowColor = "black";  // Shadow color
+                ctx.shadowBlur = 10;        // Shadow blur (softness)
+                ctx.shadowOffsetX = 5;      // Shadow horizontal offset
+                ctx.shadowOffsetY = 5;      // Shadow vertical offset
+                
+                ctx.fillText("Hello World", canvas.width/2, canvas.height-10);
+            }
+
+        </script>
+    </canvas>
+</body>
+
+</html>

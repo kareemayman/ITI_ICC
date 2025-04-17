@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>circle</title>
+
+</head>
+
+<body>
+    <canvas style="border: 1px solid blue;">
+        <script>
+            var canvas = document.querySelector('canvas');
+            var ctx = canvas.getContext('2d');
+
+            canvas.width = 800;
+            canvas.height = 600;
+
+            let counter = 0
+            let showSide = 'upper'
+
+            let interval = setInterval(() => {
+                counter++
+                if (counter === 10) {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.beginPath();
+                    ctx.arc(400, 300, 100, 0, Math.PI * 2);
+                    ctx.fillStyle = 'yellow';
+                    ctx.fill();
+                    ctx.strokeStyle = 'black';
+                    ctx.lineWidth = 5;
+                    ctx.stroke();
+                    clearInterval(interval)
+                } else {
+
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                    ctx.beginPath();
+                    if (showSide === 'upper') {
+                        ctx.arc(400, 300, 100, 0, Math.PI, false);
+                        showSide = 'lower'
+                    } else {
+                        ctx.arc(400, 300, 100, 0, Math.PI, true);
+                        showSide = 'upper'
+                    }
+                    ctx.fillStyle = 'yellow';
+                    ctx.fill();
+                    ctx.strokeStyle = 'black';
+                    ctx.lineWidth = 5;
+                    ctx.stroke();
+                    ctx.clearRect();
+                }
+            }, 500)
+        </script>
+    </canvas>
+</body>
+
+</html>

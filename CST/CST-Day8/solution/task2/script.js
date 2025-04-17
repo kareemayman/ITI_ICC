@@ -6,4 +6,6 @@ function func(a, b) {
     console.log('You entered ' + a + ' and ' + b)
 }
 
-func(1,10)
+// func(1, 2) 
+// func()
+func(1, 2, 3)
