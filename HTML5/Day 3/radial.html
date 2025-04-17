@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radial</title>
+</head>
+
+<body>
+    <canvas style="border: 4px solid black;">
+        <script>
+            const canvas = document.querySelector("canvas");
+            const ctx = canvas.getContext("2d");
+
+            canvas.height = 300;
+
+            const cx = 150, cy = 150;
+            const outerRadius = 120;
+            const innerRadius = 100;
+
+            const outerGradient = ctx.createRadialGradient(cx, cy, 20, cx, cy, 120);
+            outerGradient.addColorStop(0, "#aaccff");
+            outerGradient.addColorStop(1, "#3366cc");
+
+            ctx.beginPath();
+            ctx.arc(cx, cy, outerRadius, 0, Math.PI * 2);
+            ctx.fillStyle = outerGradient;
+            ctx.fill();
+
+            const innerGradient = ctx.createRadialGradient(
+                cx + 40, cy + 40, 10,
+                cx, cy, 180
+            );
+            innerGradient.addColorStop(0, "white");
+            innerGradient.addColorStop(1, "blue");
+
+            ctx.beginPath();
+            ctx.arc(cx, cy, innerRadius, 0, Math.PI * 2);
+            ctx.fillStyle = innerGradient;
+            ctx.fill();
+
+            ctx.fillStyle = "white";
+            ctx.font = "bold 120px Arial";
+            ctx.textAlign = "center";
+            ctx.textBaseline = "middle";
+            ctx.fillText("K", cx, cy);
+
+        </script>
+    </canvas>
+</body>
+
+</html>

@@ -1,0 +1,10 @@
+img {
+    display: block;
+    margin: 60px auto;
+    cursor: pointer;
+    transition: 2s;
+}
+
+img:hover {
+    opacity: 0.1;
+}

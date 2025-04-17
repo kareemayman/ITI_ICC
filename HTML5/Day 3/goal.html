@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Goal</title>
+</head>
+
+<body>
+    <canvas style="border: 3px solid black;">
+        <script>
+            let canvas = document.querySelector('canvas');
+            let ctx = canvas.getContext('2d');
+
+            canvas.width = 600;
+            canvas.height = 400;
+
+            let grad = ctx.createLinearGradient(0, 0, 0, canvas.height)
+            grad.addColorStop(0, 'cyan')
+            grad.addColorStop(0.5, 'white')
+            grad.addColorStop(0.5, 'green')
+            grad.addColorStop(1, 'white')
+
+            ctx.fillStyle = grad;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'black';
+            ctx.lineWidth = 3;
+
+            ctx.moveTo(200, 150); 
+            ctx.lineTo(400, 150); 
+
+            ctx.moveTo(200, 150);
+            ctx.lineTo(200, 250);
+
+            ctx.moveTo(400, 150);
+            ctx.lineTo(400, 250);
+
+            ctx.stroke(); // Render the goal
+        </script>
+    </canvas>
+</body>
+
+</html>
