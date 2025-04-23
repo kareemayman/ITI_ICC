@@ -1,0 +1,127 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.grid {
+    display: grid;
+    margin: 60px;
+    border: 5px solid black;
+    width: calc(100vw - 120px);
+    height: calc(100dvh - 120px);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: 5rem;
+}
+
+h2 {
+    font-size: 4rem;
+}
+
+h3 {
+    font-size: 3rem;
+}
+
+ul {
+    list-style: none;
+}
+
+header {
+    background-color: #83cafe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav {
+    background-color: #cb99cc;
+    padding: 30px;
+}
+
+main {
+    padding: 30px;
+    background-color: #fecccb;
+}
+
+aside {
+    background-color: #cb99cc;
+    padding: 30px;
+}
+
+footer {
+    background-color: #83cafe;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+nav h3 {
+    width: fit-content;
+    margin-inline: auto;
+    margin-bottom: 30px;
+}
+
+nav li {
+    text-transform: uppercase;
+    font-size: 2rem;
+}
+
+main h2 {
+    width: fit-content;
+    margin-inline: auto;
+}
+
+main p {
+    letter-spacing: 2px;
+    margin-top: 30px;
+    font-size: 1.5rem;
+}
+
+aside h2 {
+    width: fit-content;
+    margin-inline: auto;
+
+}
+
+@media (max-width: 769px) {
+    .grid {
+        /* display: flex; */
+        /* flex-direction: column; */
+        /* height: auto; */
+        grid-template-columns: 1fr !important;
+        grid-template-rows: repeat(5, 1fr) !important;
+        height: auto;
+    }
+    header, nav, main, aside, footer {
+        grid-column: 1 / 1 !important;
+    }
+    header {
+        grid-row: 1 / 1 !important;
+    }
+    nav {
+        grid-row: 2 / 2 !important;
+    }
+    main {
+        grid-row: 3 / 3 !important;
+    }
+    aside {
+        grid-row: 4 / 4 !important;
+    }
+    footer {
+        grid-row: 5 / 5 !important;
+    }
+}

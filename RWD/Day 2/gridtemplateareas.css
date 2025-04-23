@@ -1,0 +1,27 @@
+.grid {
+  grid-template-columns: 1fr 2.5fr 1fr;
+  grid-template-rows: 20% 1fr 20%;
+  grid-template-areas:
+    "header header header"
+    "mymenu mycontent ads" "footer footer footer";
+}
+
+header {
+  grid-area: header;
+}
+
+nav {
+  grid-area: mymenu;
+}
+
+main {
+  grid-area: mycontent;
+}
+
+aside {
+  grid-area: ads;
+}
+
+footer {
+  grid-area: footer;
+}
