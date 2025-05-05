@@ -1,0 +1,35 @@
+@mixin createFonts($fonts) {
+    @each $size in $fonts {
+        .font-#{$size} {
+            font-size: $size;
+        }
+    }
+}
+
+@mixin createLayout($columns: 12) {
+    @for $counter from 1 through $columns {
+        .col-#{$counter} {
+            @media (max-width: 300px) {
+                width: $counter / $columns * 100% - 2%;
+            }
+        }
+
+        .col-sm-#{$counter} {
+            @media (min-width: 200px) and (max-width: 768px) {
+                width: $counter / $columns * 100%  - 2%;
+            }
+        }
+
+        .col-md-#{$counter} {
+            @media (min-width: 769px) and (max-width: 1200px) {
+                width: $counter / $columns * 100%  - 2%;
+            }
+        }
+
+        .col-lg-#{$counter} {
+            @media (min-width: 1200px) {
+                width: $counter / $columns * 100%  - 2%;
+            }
+        }
+    }
+}

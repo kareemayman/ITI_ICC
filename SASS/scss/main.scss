@@ -1,0 +1,74 @@
+@import 'colors';
+@import 'mixins';
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+    h1 {
+        color: $primary;
+    }
+
+    p {
+        color: $secondary;
+    }
+
+    button {
+        transition: 0.3s;
+        background-color: $primary;
+        color: white;
+
+        &:hover {
+            background-color: $secondary;
+            color: black;
+        }
+    }
+}
+
+.content {
+    $fonts: 18px, 16px, 14px;
+    @include createFonts($fonts)
+}
+
+.finish-btn {
+    @media (max-width: 769px) {
+        width: 100%;
+    }
+
+    display: block;
+    margin-inline: auto;
+    width: 50%;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+form {
+    width: fit-content;
+    margin-inline: 30px;
+    margin-top: 80px;
+    padding: 60px;
+    padding-top: 40px;
+    border: 3px solid black;
+    border-radius: 12px;
+
+    @include createLayout;
+
+    input {
+        width: 100%;
+        border-radius: 12px;
+        outline: 0;
+        padding: 10px;
+        margin-top: 5px;
+    }
+
+    .input-group {
+        display: inline-block;
+        margin: 15px 0;
+    }
+
+}
