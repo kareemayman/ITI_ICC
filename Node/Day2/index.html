@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Store</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Book Store</h1>
+
+        <div class="buttons">
+            <div class="show-all-books button">
+                Show All Books
+            </div>
+
+            <div class="get-by-id button">
+                Get Book By ID
+                <form action="">
+                    <input type="number" name="id" id="id" placeholder="Book ID">
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+
+            <div class="delete-by-id button">
+                Delete Book By ID
+                <form action="">
+                    <input type="number" name="deleteId" id="deleteId" placeholder="Book ID">
+                    <input type="submit" value="Delete">
+                </form>
+            </div>
+
+            <div class="add-book button">
+                Add Book
+                <form action="">
+                    <input type="text" name="addName" id="addName" placeholder="Title">
+                    <select name="selectImage" id="selectImage">
+                        <option value="" disabled selected>Image</option>
+                        <option value="book1.jpg">Book1</option>
+                        <option value="book2.jpg">Book2</option>
+                        <option value="book3.jpg">Book3</option>
+                        <option value="book4.png">Book4</option>
+                    </select>
+                    <input type="submit" value="Add">
+                </form>
+            </div>
+
+            <div class="update-book button">
+                Update Book
+                <form action="">
+                    <input type="number" name="updatedBookId" id="updatedBookId" placeholder="Book ID">
+                    <input type="text" name="updatedName" id="updatedName" placeholder="Title">
+                    <select name="updatedImage" id="updatedImage">
+                        <option value="" disabled selected>Image</option>
+                        <option value="book1.jpg">Book1</option>
+                        <option value="book2.jpg">Book2</option>
+                        <option value="book3.jpg">Book3</option>
+                        <option value="book4.png">Book4</option>
+                    </select>
+                    <input type="submit" value="Update">
+                </form>
+            </div>
+        </div>
+
+        <div class="output">
+            <h2>Output</h2>
+            <div class="grid"></div>
+        </div>
+    </div>
+</body>
+</html>
