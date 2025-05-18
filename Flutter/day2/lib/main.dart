@@ -19,9 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       ),
-      // home: const Landingscreen(),
+      home: const Landingscreen(),
       // home: const QuestionScreen(),
-      home: const ScoreScreen(),
+      // home: const ScoreScreen(),
     );
   }
 }

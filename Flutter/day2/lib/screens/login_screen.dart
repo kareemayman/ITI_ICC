@@ -49,7 +49,7 @@ class LoginScreen extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(height: 40),
-                Container(
+                SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: TextFormField(
                     validator: (value) {
@@ -58,6 +58,7 @@ class LoginScreen extends StatelessWidget {
                       } else if (value.length < 3) {
                         return "username must be at least 3 characters";
                       }
+                      return null;
                     },
                     decoration: InputDecoration(
                       border: OutlineInputBorder(
