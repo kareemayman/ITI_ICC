@@ -1,3 +1,4 @@
+import 'package:day2/data/globals.dart';
 import 'package:day2/icons/icons.dart';
 import 'package:day2/screens/category_screen.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,7 @@ class LoginScreen extends StatelessWidget {
                 SizedBox(
                   width: MediaQuery.of(context).size.width * 0.8,
                   child: TextFormField(
+                    controller: loginController,
                     validator: (value) {
                       if (value!.isEmpty) {
                         return "username must not be empty";

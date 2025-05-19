@@ -1,4 +1,8 @@
+import 'package:day2/data/globals.dart';
+import 'package:day2/data/score.dart';
 import 'package:day2/icons/icons.dart';
+import 'package:day2/screens/category_screen.dart';
+import 'package:day2/screens/login_screen.dart';
 import 'package:flutter/material.dart';
 
 class ScoreScreen extends StatelessWidget {
@@ -43,15 +47,15 @@ class ScoreScreen extends StatelessWidget {
                   children: [
                     TextSpan(text: "Congratulation "),
                     TextSpan(
-                      text: "Kareem",
+                      text: loginController.text,
                       style: TextStyle(
-                        color: Colors.black, // Different style for Mohamed
+                        color: Colors.white, // Different style for Mohamed
                         fontWeight: FontWeight.w900,
                       ),
                     ),
                     TextSpan(text: " your score is "),
                     TextSpan(
-                      text: "12/15",
+                      text: "$score/15",
                       style: TextStyle(
                         color: Colors.green, // Different style for score
                         fontSize: 28,
@@ -65,8 +69,28 @@ class ScoreScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  ElevatedButton(onPressed: () {}, child: Text("Logout")),
-                  ElevatedButton(onPressed: () {}, child: Text("Play again")),
+                  ElevatedButton(
+                    onPressed: () {
+                      score = 0;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => LoginScreen()),
+                      );
+                    },
+                    child: Text("Logout"),
+                  ),
+                  ElevatedButton(
+                    onPressed: () {
+                      score = 0;
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => CategoryScreen(),
+                        ),
+                      );
+                    },
+                    child: Text("Play again"),
+                  ),
                 ],
               ),
             ],

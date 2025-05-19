@@ -1,3 +1,4 @@
+import 'package:day2/screens/questions_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCard extends StatelessWidget {
@@ -7,12 +8,22 @@ class CategoryCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Expanded(
-      child: Container(
-        color: color,
-        child: Center(
-          child: Text(
-            title!,
-            style: TextStyle(color: Colors.black, fontSize: 30),
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => QuestionScreen(title: title),
+            ),
+          );
+        },
+        child: Container(
+          color: color,
+          child: Center(
+            child: Text(
+              title!,
+              style: TextStyle(color: Colors.black, fontSize: 30),
+            ),
           ),
         ),
       ),
