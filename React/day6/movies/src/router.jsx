@@ -1,5 +1,6 @@
 import { createBrowserRouter, Outlet } from "react-router-dom"
 import { lazy } from "react"
+import Footer from "./Footer"
 
 const NavBar = lazy(() => import("./NavBar"))
 const Movies = lazy(() => import("./pages/movies"))
@@ -27,6 +28,7 @@ function NavLayout() {
     <>
       <NavBar />
       <Outlet />
+      <Footer></Footer>
     </>
   )
 }

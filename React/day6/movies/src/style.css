@@ -17,7 +17,6 @@ body {
   background-size: contain;
   background-position: center;
   background-repeat: repeat;
-  padding-bottom: 30px;
   font-family: "Raleway", sans-serif;
   font-optical-sizing: auto;
   font-style: normal;
@@ -270,4 +269,13 @@ h1 {
       font-weight: bold;
     }
   }
+}
+
+footer {
+    background-color: #00000060;
+    color: #ffcc00;
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    margin-top: 30px;
 }
