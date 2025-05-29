@@ -14,7 +14,7 @@ const Movies = () => {
     <div className="container">
       <div className="movie-title">
         <h1>Movies</h1>
-        <div className="favs">
+        <div className={`favs ${favs.length == 0 ? 'disabled' : ''}`}>
           <FontAwesomeIcon icon={faStar}></FontAwesomeIcon>
           <span> Favorites</span>
           <div className="fav-counter">{favs.length}</div>
