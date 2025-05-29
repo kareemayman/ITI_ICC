@@ -1,10 +1,14 @@
+import { faClapperboard } from "@fortawesome/free-solid-svg-icons"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import React from "react"
 import { Link } from "react-router-dom"
 
 export default function NavBar() {
   return (
     <div className="movies-navbar">
-      <h1>Movies</h1>
+      <h1>
+        <FontAwesomeIcon icon={faClapperboard}></FontAwesomeIcon> Movies
+      </h1>
 
       <nav>
         <Link to="/" className="navbar-link">
