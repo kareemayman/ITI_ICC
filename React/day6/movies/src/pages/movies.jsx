@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import { useEffect, useState } from "react"
 import Movie from "../movie"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
@@ -7,10 +7,19 @@ import { moviesSliceAction } from "../redux/slices/moviesSlice"
 import { toggleShowFavorites } from "../redux/slices/favoritesSlice"
 
 const Movies = () => {
+  const [title, setTitle] = useState("Movies")
   const movies = useSelector((state) => state.moviesSlice.movies)
   const favs = useSelector((state) => state.favoritesSlice.favorites)
   const showFavs = useSelector((state) => state.favoritesSlice.showFavorites)
   const dispatch = useDispatch()
+
+  useEffect(() => {
+    if (showFavs) {
+      setTitle("Favorites")
+    } else {
+      setTitle("Movies")
+    }
+  }, [showFavs])
 
   useEffect(() => {
     dispatch(moviesSliceAction())
@@ -19,7 +28,7 @@ const Movies = () => {
   return (
     <div className="container">
       <div className="movie-title">
-        <h1>Movies</h1>
+        <h1>{title}</h1>
         <div
           className={`favs ${favs.length == 0 ? "disabled" : ""}`}
           onClick={() => {
