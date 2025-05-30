@@ -291,3 +291,27 @@ h1 {
     }
   }
 }
+
+.about-page {
+  margin-top: 60px;
+  padding: 40px;
+  border-radius: 12px;
+  background-color: #00000060;
+  color: #ffcc00;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: 0.3s;
+
+  h1 {
+    text-align: center;
+    color: #ffcc00;
+  }
+
+  p {
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #ccc;
+    font-size: 1.1em;
+    text-align: justify;
+    letter-spacing: 2px;
+  }
+}
