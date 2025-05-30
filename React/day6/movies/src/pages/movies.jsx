@@ -22,6 +22,12 @@ const Movies = () => {
   }, [showFavs])
 
   useEffect(() => {
+    if (favs.length === 0 && showFavs) {
+      dispatch(toggleShowFavorites())
+    }
+  }, [favs])
+
+  useEffect(() => {
     dispatch(moviesSliceAction())
   }, [])
 
