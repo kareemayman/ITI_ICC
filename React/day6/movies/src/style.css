@@ -107,32 +107,32 @@ body {
   nav {
     display: flex;
     gap: 15px;
+  }
 
-    .navbar-link {
-      text-decoration: none;
-      color: #ffcc00;
-      font-weight: bold;
-      letter-spacing: 1px;
+  .navbar-link {
+    text-decoration: none;
+    color: #ffcc00;
+    font-weight: bold;
+    letter-spacing: 1px;
+    transition: 0.3s;
+    padding: 5px 15px;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      translate: -50%;
+      width: 0;
+      height: 2px;
+      border-radius: 12px;
+      background-color: #ffcc00;
       transition: 0.3s;
-      padding: 5px 15px;
-      position: relative;
+    }
 
-      &::before {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        translate: -50%;
-        width: 0;
-        height: 2px;
-        border-radius: 12px;
-        background-color: #ffcc00;
-        transition: 0.3s;
-      }
-
-      &:hover::before {
-        width: 50%;
-      }
+    &:hover::before {
+      width: 50%;
     }
   }
 }
@@ -182,12 +182,12 @@ h1 {
     }
 
     &.disabled {
-        cursor: not-allowed;
-        opacity: 0.5;
-    
-        &:hover {
-            background-color: #00000060;
-        }
+      cursor: not-allowed;
+      opacity: 0.5;
+
+      &:hover {
+        background-color: #00000060;
+      }
     }
   }
 }

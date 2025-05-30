@@ -46,7 +46,7 @@ const Movies = () => {
           <div className="fav-counter">{favs.length}</div>
         </div>
       </div>
-      <div className="grid">
+      <div className="grid" data-aos="fade-up">
         {showFavs &&
           favs.map((fav) => {
             return (

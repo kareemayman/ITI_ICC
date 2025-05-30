@@ -33,7 +33,7 @@ export default function Movie({ img, title, id }) {
   }
 
   return (
-    <div className="movie">
+    <div className="movie" >
       <h3 onClick={fetchMovie}>{title}</h3>
       <img src={img} alt={title} onClick={fetchMovie}/>
       <div className="favorite-icon" onClick={handleFavLogic}>
