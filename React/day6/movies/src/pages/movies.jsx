@@ -1,14 +1,19 @@
-import React, { useContext } from "react"
+import React, { useEffect } from "react"
 import Movie from "../movie"
-import { MovieContext } from "../context/MovieContext"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar } from "@fortawesome/free-solid-svg-icons"
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
+import { moviesSliceAction } from "../redux/slices/moviesSlice"
 
 const Movies = () => {
   
-  const { movies } = useContext(MovieContext)
+  const movies = useSelector((state => state.moviesSlice.movies))
   const favs = useSelector((state => state.favoritesSlice.favorites))
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(moviesSliceAction())
+  }, [])
 
   return (
     <div className="container">
