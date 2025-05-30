@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useState } from "react"
+import { useCallback } from "react"
 import { useNavigate } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faStar as starRegular } from "@fortawesome/free-regular-svg-icons"
