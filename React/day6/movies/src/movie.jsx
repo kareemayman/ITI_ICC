@@ -21,14 +21,10 @@ export default function Movie({ img, title, id }) {
   }, [])
 
   function handleFavLogic() {
-    console.log("handleFavLogic called", isFav, id)
     if (isFav) {
-      // Remove from favorites
       dispatch(removeFavorite({img, title, id}))
     } else {
-      // Add to favorites
       dispatch(addFavorite(movies.find((movie) => movie.id === id)))
-      console.log(isFav)
     }
   }
 
