@@ -17,6 +17,9 @@ class _HomeScreenState extends State<HomeScreen> {
   final _timeTextController = TextEditingController();
   final _taskTextController = TextEditingController();
   var formKey = GlobalKey<FormState>();
+  void setStateOnCHeck() {
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -116,35 +119,54 @@ class _HomeScreenState extends State<HomeScreen> {
                               child: SlidableAction(
                                 onPressed: (context) {
                                   setState(() {
-                                    datalist[2].data.add(
-                                      TaskModel(
-                                        task:
-                                            datalist[_selectedIndex]
-                                                .data[i]
-                                                .task,
-                                        time:
-                                            datalist[_selectedIndex]
-                                                .data[i]
-                                                .time,
-                                      ),
-                                    );
+                                    if (_selectedIndex == 0) {
+                                      datalist[2].data.add(
+                                        TaskModel(
+                                          task:
+                                              datalist[_selectedIndex]
+                                                  .data[i]
+                                                  .task,
+                                          time:
+                                              datalist[_selectedIndex]
+                                                  .data[i]
+                                                  .time,
+                                        ),
+                                      );
+                                    } else {
+                                      datalist[0].data.add(
+                                        TaskModel(
+                                          task:
+                                              datalist[_selectedIndex]
+                                                  .data[i]
+                                                  .task,
+                                          time:
+                                              datalist[_selectedIndex]
+                                                  .data[i]
+                                                  .time,
+                                        ),
+                                      );
+                                    }
                                     // Perform delete action
                                     datalist[_selectedIndex].data.removeAt(i);
                                   });
                                 },
-                                backgroundColor: Color(0xFFFE4A49),
+                                backgroundColor:
+                                    _selectedIndex == 2
+                                        ? const Color.fromARGB(224, 14, 158, 69)
+                                        : Colors.red,
                                 foregroundColor: Colors.white,
-                                icon: Icons.delete,
-                                label: 'Delete',
+                                icon:
+                                    _selectedIndex == 2
+                                        ? Icons.restore
+                                        : Icons.delete,
+                                label:
+                                    _selectedIndex == 2 ? "Restore" : "Delete",
                                 borderRadius: BorderRadius.circular(15),
                               ),
                             ),
                             SizedBox(width: 10),
-                            SizedBox(
-                              // set the width
-                              width: 100,
-                              height: 70,
-                              child: SlidableAction(
+                            if (_selectedIndex == 0)
+                              SlidableAction(
                                 onPressed: (context) {
                                   // Perform update action
                                   showTaskDialogue(context, index: i);
@@ -157,17 +179,19 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 foregroundColor: Colors.white,
                                 icon: Icons.edit,
-                                label: 'Update',
+                                label: "Update",
                                 borderRadius: BorderRadius.circular(
                                   15,
                                 ), // Decreased the border radius
                               ),
-                            ),
                           ],
                         ),
                         child: TaskContainer(
                           task: datalist[_selectedIndex].data[i].task,
                           time: datalist[_selectedIndex].data[i].time,
+                          taskTypeId: datalist[_selectedIndex].taskTypeId,
+                          currentIndex: i,
+                          upperWidgetState: setStateOnCHeck,
                         ),
                       ),
                   ],
@@ -184,6 +208,9 @@ class _HomeScreenState extends State<HomeScreen> {
     if (index != null) {
       _taskTextController.text = datalist[0].data[index].task;
       _timeTextController.text = datalist[0].data[index].time;
+    } else {
+      _taskTextController.clear();
+      _timeTextController.clear();
     }
     return showDialog(
       context: context,

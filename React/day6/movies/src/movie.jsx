@@ -7,13 +7,14 @@ import { faStar as starSolid } from "@fortawesome/free-solid-svg-icons"
 import { addFavorite, removeFavorite } from "./redux/slices/favoritesSlice"
 
 export default function Movie({ img, title, id }) {
+
   const movies = useSelector((state) => state.moviesSlice.movies)
-
   const favs = useSelector((state) => state.favoritesSlice.favorites)
-  const isFav = favs.some((fav) => fav.id === id)
   const dispatch = useDispatch()
-
+  
   const navigate = useNavigate()
+  
+  const isFav = favs.some((fav) => fav.id === id)
 
   const fetchMovie = useCallback(() => {
     const data = movies.find((movie) => movie.id === id)

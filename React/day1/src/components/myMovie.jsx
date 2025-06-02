@@ -1,7 +1,6 @@
 import React from "react"
 
 export default function MyMovie(props) {
-  console.log(props.img)
   return (
     <div className="movie">
       <span>
