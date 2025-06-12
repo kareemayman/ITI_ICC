@@ -1,0 +1,54 @@
+:root {
+  --background: #0E0E10;
+  --text-primary: #F1F1F1;
+  --text-secondary: #A1A1AA;
+  --border-color: #2C2C2E;
+  --surface: #1A1A1D;
+  --accent-primary: #FF6B6B;
+  --accent-secondary: #00FFC3;
+}
+
+body {
+  color: var(--text-primary);
+  background: var(--background);
+  font-family: 'Sora', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  min-width: 100vw;
+  min-height: 100dvh;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.container {
+  margin-inline: auto;
+  padding-inline: 15px;
+  padding-top: 30px;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}

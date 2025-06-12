@@ -1,0 +1,22 @@
+.header {
+  background-color: var(--surface);
+  color: var(--accent-secondary);
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px;
+
+    .logo {
+      font-size: 20px;
+      font-weight: 400;
+    }
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+}
