@@ -1,22 +1,43 @@
 .header {
-  background-color: var(--surface);
   color: var(--accent-secondary);
 
   .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 30px;
+    padding: 20px;
+    padding-inline: 40px;
 
     .logo {
       font-size: 20px;
       font-weight: 400;
+      background-color: var(--surface);
+      padding: 20px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #313136;
+      }
     }
   }
 
   .links {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 20px;
+
+    .link {
+      background-color: var(--surface);
+      padding: 20px 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: #313136;
+      }
+    }
   }
 }

@@ -6,11 +6,11 @@ export default function Header() {
   return (
     <div className={styles.header}>
       <div className={styles.container}>
-        <div className={styles.logo}><Link href='/'>Recipe Hub</Link></div>
+        <Link href='/' className={styles.logo}>Recipe Hub</Link>
         <div className={styles.links}>
-          <Link href="/recipes">Recipes</Link>
-          <Link href="/favorites">Favorites</Link>
-          <Link href="/about">About</Link>
+          <Link href="/recipes" className={styles.link}>Recipes</Link>
+          {/* <Link href="/favorites" className={styles.link}>Favorites</Link> */}
+          <Link href="/about" className={styles.link}>About</Link>
         </div>
       </div>
     </div>

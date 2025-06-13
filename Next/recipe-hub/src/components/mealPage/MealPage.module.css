@@ -1,0 +1,147 @@
+.mealPage {
+  background: #181c23;
+  border-radius: 18px;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.30), 0 1.5px 6px rgba(0,0,0,0.18);
+  padding: 2rem;
+  margin: 2rem auto;
+  margin-top: 0;
+  max-width: 900px;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #f3f6fa;
+}
+
+.header {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.image {
+  width: 260px;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.32);
+}
+
+.info {
+  flex: 1;
+}
+
+.title {
+  font-size: 2.5rem;
+  margin: 0 0 1rem 0;
+  color: #fff;
+}
+
+.meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 1.1rem;
+  color: #b0b8c1;
+}
+
+.category, .area {
+  background: #232834;
+  padding: 0.4em 1em;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #f3f6fa;
+  border: 1px solid #2d3340;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.ingredients {
+  flex: 1 1 250px;
+  min-width: 220px;
+  max-width: 320px;
+  background: #202532;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  margin-bottom: 1.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+.instructions {
+  flex: 2 1 400px;
+  min-width: 260px;
+  background: #202532;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  margin-bottom: 1.5rem;
+  max-height: 420px;
+  overflow-y: auto;
+}
+
+@media (max-width: 900px) {
+  .content {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  .ingredients, .instructions {
+    max-width: 100%;
+    min-width: 0;
+    margin-bottom: 0;
+  }
+  .instructions {
+    max-height: none;
+    overflow: visible;
+  }
+}
+
+.ingredients ul {
+  padding-left: 1.2em;
+  margin: 0.5em 0 0 0;
+}
+
+.ingredients li {
+  margin-bottom: 0.4em;
+  font-size: 1.05rem;
+  color: #e0e6ed;
+}
+
+.instructions h2,
+.ingredients h2,
+.video h2 {
+  color: #f3f6fa;
+}
+
+.instructions p {
+  white-space: pre-line;
+  line-height: 1.7;
+  margin-top: 0.5em;
+  color: #d3dae6;
+}
+
+.video {
+  margin-top: 2rem;
+  text-align: center;
+}
+
+.video iframe {
+  width: 100%;
+  max-width: 500px;
+  height: 280px;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.25);
+  background: #232834;
+  margin-top: 30px;
+}
+
+.loading {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.3rem;
+  color: #b0b8c1;
+}

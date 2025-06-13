@@ -16,6 +16,32 @@ body {
   -moz-osx-font-smoothing: grayscale;
   min-width: 100vw;
   min-height: 100dvh;
+  letter-spacing: 1px;
+  background-image: linear-gradient(var(--background), var(--surface));
+  padding-bottom: 30px;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--surface);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--background);
+}
+
+::-webkit-scrollbar-corner {
+  background-color: var(--background);
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 * {
@@ -32,7 +58,6 @@ a {
 .container {
   margin-inline: auto;
   padding-inline: 15px;
-  padding-top: 30px;
 }
 
 @media (min-width: 768px) {

@@ -1,0 +1,31 @@
+.heading {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #f3f6fa;
+  text-align: center;
+  font-weight: 600;
+}
+
+.ingredient {
+  color: #7fd7c4;
+  background: #232834;
+  padding: 0.2em 0.7em;
+  border-radius: 1em;
+  font-size: 1.1em;
+  margin-left: 0.3em;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.loading,
+.noResults {
+  text-align: center;
+  color: #b0b8c1;
+  font-size: 1.2rem;
+  margin-top: 2rem;
+}

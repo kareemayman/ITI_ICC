@@ -1,0 +1,29 @@
+.aboutContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    line-height: 1.6;
+
+    h1 {
+        font-size: 32px;
+        font-weight: 600;
+        color: var(--text-primary);
+    }
+
+    p, li {
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    li {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+}
