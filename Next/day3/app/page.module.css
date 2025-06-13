@@ -1,0 +1,118 @@
+.page {
+    margin-top: 30px;
+    
+    .user {
+        margin-top: 30px;
+
+        .link, button {
+            background-color: #fff;
+            color: #000;
+            padding: 5px 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            margin-right: 5px;
+            border: none;
+            outline: 0;
+            cursor: pointer;
+        }
+
+        .deleteButton {
+            background-color: red;
+            color: #fff;
+            font-size: 1em;
+        }
+
+        .updateButton {
+            background-color: green;
+            color: #fff;
+            font-size: 1em;
+        }
+    }
+
+    .addUser {
+        input, button {
+            border: none;
+            outline: 0;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        button {
+            background-color: #fff;
+            color: #000;
+            cursor: pointer;
+        }
+    }
+}
+
+.updateUserOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.4);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.updateUserModal {
+  background: #fff;
+  padding: 2rem 2.5rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+  min-width: 320px;
+  max-width: 90vw;
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.updateUserModal h2 {
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  color: #222;
+}
+
+.updateUserModal form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.updateUserModal input {
+  padding: 0.7rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.updateUserModal input:focus {
+  border: 1.5px solid #0070f3;
+}
+
+.updateUserModal button {
+  background: #0070f3;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+
+  &:first-of-type {
+    background-color: red;
+  }
+}
+
+.updateUserModal button[type="submit"]:hover {
+  background: #005bb5;
+}

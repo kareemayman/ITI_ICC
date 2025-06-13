@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "name": "Leanne Graham",
+    "username": "Bret",
+    "email": "WV9E2@example.com"
+  },
+  {
+    "id": 2,
+    "name": "Ervin Howell",
+    "username": "Antonette",
+    "email": "VX4dP@example.com"
+  },
+  {
+    "id": 3,
+    "name": "Clementine Bauch",
+    "username": "Samantha",
+    "email": "b3V2H@example.com"
+  },
+  {
+    "id": 4,
+    "name": "Patricia Lebsack",
+    "username": "Karianne",
+    "email": "p4HtM@example.com"
+  },
+  {
+    "id": 5,
+    "name": "Ahmed Ashraf",
+    "username": "as12",
+    "email": "Ahemd@gmail.com"
+  },
+  {
+    "id": 6,
+    "name": "Kareem Ayman",
+    "username": "Kareem Ayman",
+    "email": "kareem@gmail.com"
+  }
+]
