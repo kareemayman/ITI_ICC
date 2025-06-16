@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 export default function NavBar() {
   return (
     <div className="movies-navbar">
-      <Link to="/" style={{ textDecoration: "none" }} className="navbar-link">
+      <Link to="/movies" style={{ textDecoration: "none" }} className="navbar-link">
         <h1>
           <FontAwesomeIcon icon={faClapperboard}></FontAwesomeIcon> Movies
         </h1>
