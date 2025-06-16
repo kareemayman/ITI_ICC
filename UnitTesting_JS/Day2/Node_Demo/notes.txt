@@ -1,0 +1,18 @@
+✅ Calls done() to tell the test runner that the async beforeAll is finished. Without this, tests might start too early.
+🔧 done is a callback function used to signal that an asynchronous operation has finished.
+If you don’t call done(), tests may run too early (before data is ready), or time out.
+
+🛑 After all tests run, stop the server to clean up. This avoids issues like "port already in use" in future runs.
+
+📦 What is the request Library?
+The request library is a Node.js module used to make HTTP requests — similar to how a browser visits a website or fetches data from a server.
+
+✅ Main Purpose:
+To send HTTP requests (like GET, POST, PUT, DELETE) to a web server and receive responses.
+
+🧠 Why Use request?
+In the context of testing, like in your Mocha or Jest tests:
+
+It lets you act like a client (like a browser or mobile app).
+You send a request to your server and check the response.
+This helps verify that your API works as expected (status code, data sent back, etc).

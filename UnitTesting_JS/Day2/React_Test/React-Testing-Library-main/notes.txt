@@ -1,0 +1,190 @@
+Header Component:-
+
+it(): Defines a single test case.
+render(<Header title="todo" />):
+Simulates rendering Header component with prop title="todo".
+getByText(/todo/i):
+Finds the element containing the text "todo" (case-insensitive because of /i).
+toBeInTheDocument():
+Asserts that the element is present in the DOM.
+
+const h1Element = screen.getByRole("heading");
+Finds any element with role='heading' (h1, h2, etc.).
+
+const h1Element = screen.getByRole("heading", { name: /todo/i });
+Finds a heading with accessible name/text 'todo'.
+
+const h1Element = screen.getByTitle("Header");
+Finds an element with title="Header" attribute.
+<h1 title="Header">todo</h1>
+
+const h2Element = screen.getByTestId("header-2");
+Finds element with data-testid="header-2".
+<h2 data-testid="header-2">todo</h2>
+
+const h1Element = await screen.findByText(/todo/i);
+Async version: waits until the element appears (useful if element is rendered later, e.g., after fetching data).
+findByText() is an asynchronous function — it returns a Promise.
+It waits (for up to a default timeout — usually 1000ms or so) to find the element in the DOM.
+You use await to pause and wait until either:
+the element appears, or
+the timeout expires and an error is thrown.
+
+const h1Element = screen.queryByText(/dogs/i);
+expect(h1Element).not.toBeInTheDocument();
+Checks for something that should NOT exist (queryBy returns null if not found).
+
+const h1Elements = screen.getAllByText(/todo/i);
+expect(h1Elements.length).toBe(1);
+Returns all matching elements.
+Useful when you expect multiple instances (here you check there is exactly 1).
+
+.length gives the number of matching elements found in the virtual DOM.
+
+/////////////////////////////////////////////////////////////////////////////////////////
+
+Todo Footer Component:-
+render, screen from @testing-library/react:
+render() mounts your component in a virtual DOM for testing.
+screen allows you to query and access DOM elements.
+BrowserRouter:
+Needed because TodoFooter uses routing (like Link). Without this wrapper, the test will fail.
+
+But why this extra MockTodoFooter wrapper?
+✔️ To make your test simpler and cleaner.
+
+Without this wrapper, your test would need to do this every time:
+render(
+    <BrowserRouter>
+        <TodoFooter numberOfIncompleteTasks={5} />
+    </BrowserRouter>
+);
+
+But by creating MockTodoFooter, you can simplify all tests to:
+render(<MockTodoFooter numberOfIncompleteTasks={5} />);
+
+
+
+
+Purpose:
+A "mock" version of TodoFooter that includes BrowserRouter so that it works during testing.
+Takes numberOfIncompleteTasks prop:
+Passes it to the real TodoFooter component.
+
+
+
+it('should render...'):
+Describes this test’s purpose: rendering text for 5 tasks.
+
+render(<MockTodoFooter numberOfIncompleteTasks={5} />):
+Mounts the component with 5 tasks.
+screen.getByText(/5 tasks left/i):
+Finds the element with the text "5 tasks left" (case insensitive).
+expect(pElement).toBeInTheDocument():
+Checks that this element is indeed in the DOM
+
+✔️ toBeTruthy()
+Passes if pElement exists (is not null or undefined, 0 , nan ,"",false).
+
+✔️ toBeVisible()
+Checks that the element is visually visible (not hidden with CSS or display: none).
+
+✔️ toContainHTML('p')
+Checks if this element contains an HTML <p> tag.
+
+✔️ toHaveTextContent("1 task left")
+Verifies the exact text content of the element.
+
+✔️ not.toBeFalsy()
+Same as toBeTruthy() but negated. Passes if the element exists.
+
+✔️ pElement.textContent === "1 task left"
+expect(pElement.textContent).toBe("1 task left");
+Direct check of the element’s raw text.
+
+
+///////////////////////////////////////////////////////////////////////////////
+Add input component :
+
+const mockedSetTodo = jest.fn();
+✔️ Creates a mock function using Jest to "fake" the setTodos function that the component uses.
+✅ This lets you check if setTodos was called during the test.
+
+What is a mock function?
+A mock function is a fake function you create in tests to:
+Spy on how it’s called (how many times, with what arguments, etc.).
+Prevent real function execution — you can test behavior without running actual logic.
+Optionally return fake data to simulate different scenarios.
+Why is this useful?
+Imagine setTodo is a real function that updates state:
+const [todo, setTodo] = useState("");
+But in tests, you don’t want to deal with real state — you just want to see if the function was called properly.
+Why used?	To test function calls without affecting real state or logic.
+
+✔️ Renders AddInput with:
+todos as an empty array.
+setTodos as the mock function.
+
+const inputElement = screen.getByPlaceholderText(/Add a new task here.../i);
+✔️ Finds the input box using its placeholder text.
+
+fireEvent.change(inputElement, { target: { value: "Go Grocery Shopping" } });
+✔️ Simulates typing: sets the input field's value to "Go Grocery Shopping".
+
+expect(inputElement.value).toBe("Go Grocery Shopping");
+✔️ Asserts that the input’s value matches the text that was "typed".
+
+const buttonElement = screen.getByRole("button", { name: /Add/i});
+✔️ Selects the button by its accessible "role" and name (label text containing "Add").
+
+fireEvent.click(buttonElement)
+✔️ Simulates a click on the "Add" button.
+
+expect(mockedSetTodo).toBeCalled()
+✔️ Checks if the mocked setTodos function was called when the button was clicked.
+
+jest.fn()	Creates a mock function to spy on calls (like setTodos).
+////////////////////////////////////////////////////////////////////////////
+
+
+Todo component
+
+    tasks.forEach((task) => {
+        fireEvent.change(inputElement, { target: { value: task } });
+        fireEvent.click(buttonElement);
+    })
+}
+
+✔️ Loops through all tasks in the array:
+
+Types the task into the input.
+Clicks the "Add" button.
+Adds each task to the Todo list.
+
+
+
+// FollowerList  Component
+    beforeEach(() => {
+        // console.log("RUNS BEFORE EACH TEST")
+        jest.mock("../../../__mocks__/axios")
+    })
+
+✔️ Runs before every test:
+Mocks the axios module (to avoid real API calls and use the mock instead).
+jest.mock() tells Jest to use a manual mock located at __mocks__/axios.js.
+
+const followerDivElement = await screen.findByTestId(`follower-item-0`)
+
+✔️ Waits (asynchronously) until it finds the first follower item by its test ID: "follower-item-0".
+Uses findByTestId because data is loaded asynchronously (probably via Axios).
+
+
+
+
+
+
+
+
+
+
+

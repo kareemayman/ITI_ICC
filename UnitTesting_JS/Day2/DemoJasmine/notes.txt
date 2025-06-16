@@ -1,0 +1,140 @@
+compare	A function that Jasmine calls to check if the actual value passes your custom rule.
+In a custom matcher, compare is a function that Jasmine automatically calls when you use your custom matcher in a test.
+pass	A boolean: true if test passes, false if it fails
+message	A message shown when the test fails (optional but helpful)
+-Let’s say you want to test if a number is greater than 100. Jasmine doesn’t have a built-in matcher like toBeGreaterThan100, so you can create one!
+
+-beforeEach	Used to add the matcher before each test
+
+-You're calling sayHelloWorld(obj) to trigger the obj.hello() method, so you can spy on it and check if it was called.
+
+
+npm i jasmine -D
+npx jasmine init 
+inside folder spec --> file index.spec.js
+
+/////////////////////////////////////////////////////
+npm i mocha chai -D
+folder(test) ---> index.test.js
+//////////////////////////////////////////////////////////////
+.toEqual(3) → checks for value equality.
+.toBe(3) → checks for strict equality (no type coercion).
+a and b point to different objects that contain the same reference to user.
+////////////////////////////////////////////////////////////////////////////
+
+Purpose: Jasmine Clock allows you to manually control time in your tests.
+Used to test setTimeout, setInterval, etc.
+
+spyOn = watch and track function calls.
+jasmine.createSpy = create fake functions to track behavior.
+jasmine.clock().install() = mock time to test delays.
+
+addMatchers() = define your own custom test logic.
+
+a and b are different objects in memory, even though their contents are the same.
+.toBe() checks for reference equality (not just value equality).
+Since a !== b, this assertion would fail.
+
+Jasmine allows extending the default set of matchers with custom ones using addMatchers
+Jasmine expects the matcher to return an object with a compare method.
+The compare method receives the actual value being tested.
+return res: Jasmine uses this object to decide test outcome
+
+✅ The Purpose of beforeEach() Here
+We use beforeEach() to ensure that our custom matcher is registered before each test runs.
+Jasmine does not know about your custom matcher (ToBeGreaterThan100) by default.
+You have to register it using jasmine.addMatchers(...).
+beforeEach() guarantees that this matcher is added before every test, so it is available inside it().
+
+🔁 What if we didn't use beforeEach()?
+If you added the matcher outside of beforeEach, it would:
+Only register once at the beginning.
+Might not be available if Jasmine runs tests out of order or resets matchers between tests.
+Could cause flaky tests if you forget to register it again in other test suites.
+To avoid repetition	You don’t need to repeat it in every it()
+
+
+🔹 beforeAll(() => {})
+Runs once before all tests in this block.
+It sets up the spy and calls the function you're testing.
+
+sayHelloWorld(obj) (twice)	Calls a function that likely triggers obj.hello(3)
+
+///////////////////////////////////////////////////////////////////////////
+Without beforeEach():
+You'd have to manually re-create the instance inside every single test, like:
+test('addition', () => {
+    const math = new MathUtils();
+    // test something
+});
+Avoid shared state between tests:
+If you reuse the same MathUtils object for all tests, changes made in one test might affect others. This breaks test isolation.
+
+Guarantee clean, independent tests:
+Every test starts with a new, fresh object, ensuring that no old data, values, or mutations leak from previous tests.
+
+////////////////////////////////////////////////////////////////////////////
+❓ Why is the spying and function-calling logic inside beforeAll() and not directly in the it() block?
+
+The reason is separation of setup and verification — a key principle in testing:
+1. Test Setup vs. Assertions: Clear Separation
+beforeAll() is for preparing the environment:
+👉 Spy on the method (spyOn(obj, "hello"))
+👉 Call functions that trigger the method (sayHelloWorld(obj))
+
+it() block is for asserting/expecting behavior:
+👉 Check if spy was called, how many times, with which arguments.
+
+✅ This separation makes the test:
+
+Cleaner
+More readable
+Easier to maintain
+
+2. Avoids Redundant Code
+If you move setup logic into each it() block:
+You’d have to repeat setup for every test.
+//////////////////////////////////////////////////////////////////////
+✅ jasmine.clock().install():
+✔️ Fakes (mocks) JavaScript's clock — this stops real time and lets you control time manually using tick().
+✔️ Useful for testing things like setTimeout or setInterval without waiting for real time.
+
+✅ jasmine.clock().uninstall():
+✔️ Restores the real clock after the test finishes — so that other tests or code aren’t affected by this fake clock.
+
+        setTimeout(()=>{
+            x=10;
+        },1000)
+
+✅ Schedule a function to run after 1000 milliseconds (1 second) to change x to 10.
+But because Jasmine’s clock is mocked, this won’t run until you manually tick the clock.
+expect(x).toEqual(5);
+✅ Check that x is still 5 immediately after setTimeout() — correct, because time hasn’t moved yet.
+jasmine.clock().tick(1000);
+✅ Manually fast-forwards time by 1000ms (1 second) in this fake clock.
+Now the function inside setTimeout() runs, and x becomes 10.
+
+✅ Why use jasmine.clock()?
+To test time-based code instantly (no real waiting).
+Makes your tests faster and more predictable.
+
+///////////////////////////////////////////////////////////////
+ let callback = jasmine.createSpy("callback");
+ ✅ Create a spy function named "callback":
+✔️ A spy is a fake function that records:
+
+If it was called.
+How many times.
+With what arguments.
+
+✅ Why use jasmine.clock() and createSpy() here?
+
+Fake time: No real waiting 1 second.
+
+Fake function (spy): No real callback — just test whether and how it’s called.
+
+
+
+
+
+

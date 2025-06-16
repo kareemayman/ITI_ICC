@@ -1,0 +1,27 @@
+----> to watch test in mocha 
+       npm i nodemon -D
+       "test":"nodemon mocha"
+       npm test
+
+-----> to test using run()
+      npm test -- --delay
+
+////////////////////////////////////////////
+-----> to setup jasmine 
+       npm i jasmine -D
+       npx jasmine init 
+       "test":"jasmine"
+
+///////////////////////////////////////////
+-----> to test endpoint in node 
+       npm i jasmine request -D
+       npx jasmine init
+
+///////////////////////////////////////////
+-----> to test reactjs 
+      npm install --save-dev jest @testing-library/react @testing-library/jest-dom
+
+
+////////////////////////////////////////////
+----> to get coverage report 
+      npm test -- --coverage
