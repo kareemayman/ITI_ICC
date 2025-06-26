@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo App</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="idb.js" defer></script>
+  <script src="main.js" defer></script>
+</head>
+
+<body>
+  <div class="container">
+    <div class="todo">
+      <h1>Todo App</h1>
+      <form id="todo-form">
+        <h3>Add New Task</h3>
+        <div class="control-group">
+          <label for="taskTitle">Task Title:</label>
+          <input type="text" name="taskTitle" id="taskTitle" required>
+        </div>
+        <div class="control-group">
+          <label for="date">Date:</label>
+          <input type="date" name="date" id="date" required>
+        </div>
+        <div class="control-group">
+          <label for="hours">Hours (hh):</label>
+          <input type="number" name="hours" id="hours" min="0" max="23" required>
+        </div>
+        <div class="control-group">
+          <label for="minutes">Minutes (mm):</label>
+          <input type="number" name="minutes" id="minutes" min="0" max="59" required>
+        </div>
+        <div class="control-group">
+          <button type="reset">Reset</button>
+          <button type="submit">Add Task</button>
+        </div>
+      </form>
+
+      <div class="task-list">
+
+      </div>
+    </div>
+  </div>
+
+  <div class="notification-button">
+    Enable Notifications
+  </div>
+</body>
+
+</html>
