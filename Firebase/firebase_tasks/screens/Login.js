@@ -35,8 +35,6 @@ export default function Login() {
       return
     }
 
-    // Here you would typically call your authentication service
-    // For example: signInWithEmailAndPassword(auth, email, password)
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         // Signed in
