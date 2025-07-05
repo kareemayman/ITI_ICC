@@ -11,13 +11,14 @@ import React, { useState } from "react"
 import Icon from "react-native-vector-icons/AntDesign"
 import { useNavigation } from "@react-navigation/native"
 import { createUserWithEmailAndPassword } from "firebase/auth"
-import { auth } from "../firebase"
-
+import { auth, db } from "../firebase"
+import { addDoc, doc, setDoc } from "firebase/firestore"
 
 export default function Register() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const [confirmPassword, setConfirmPassword] = useState("")
+  const [username, setUsername] = useState("")
 
   const navigation = useNavigation()
 
@@ -40,16 +41,28 @@ export default function Register() {
       return
     }
 
-    createUserWithEmailAndPassword(auth, email, password).then((userCredential) => {
-      // Signed in
-      const user = userCredential.user
-      alert("Registration successful!")
-      navigation.navigate("Login") // Navigate to Login screen after successful registration
-    }).catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      alert(`Error: ${errorMessage}`)
-    })
+    createUserWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        // Signed in
+        const user = userCredential.user
+        alert("Registration successful!")
+        return user
+      })
+      .then((user) => {
+        const uid = user.uid
+        const docRef = doc(db, "users", uid)
+        setDoc(docRef, {
+          uid: uid,
+          email: email,
+          username: username,
+        })
+      })
+      .then(() => navigation.navigate("Login"))
+      .catch((error) => {
+        const errorCode = error.code
+        const errorMessage = error.message
+        alert(`Error: ${errorMessage}`)
+      })
   }
 
   return (
@@ -64,7 +77,6 @@ export default function Register() {
         <Text style={{ fontSize: 18, marginTop: 5, marginBottom: 20 }}>
           Please fill in the details below
         </Text>
-
         <Text style={styles.label}>Email Address: </Text>
         <TextInput
           style={styles.input}
@@ -72,6 +84,14 @@ export default function Register() {
           placeholder="Please enter your email"
           onChangeText={setEmail}
           value={email}
+        />
+
+        <Text style={styles.label}>Username: </Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Please enter your username"
+          onChangeText={setUsername}
+          value={username}
         />
 
         <Text style={styles.label}>Password: </Text>
